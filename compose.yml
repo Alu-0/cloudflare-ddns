@@ -1,0 +1,25 @@
+services:
+  cloudflare-ddns:
+    # image
+    image: timothyjmiller/cloudflare-ddns:latest
+
+    # name
+    container_name: cloudflare-ddns
+    hostname: cloudflare-ddns
+
+    # restart & stop
+    restart: unless-stopped
+    stop_grace_period: 1m
+
+    # security
+    security_opt:
+      - no-new-privileges:true
+
+    # environment
+    environment:
+      - PUID=1000
+      - PGID=1000
+
+    # volumes
+    volumes:
+      - ./config/config.json:/config.json
