@@ -9,3 +9,6 @@ logs:
 
 attach:
   docker compose attach cloudflare-ddns
+
+ps:
+  docker compose ps
